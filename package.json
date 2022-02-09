@@ -1,0 +1,23 @@
+{
+  "name": "Electrothon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TRUP02/Electrothon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TRUP02/Electrothon/issues"
+  },
+  "homepage": "https://github.com/TRUP02/Electrothon#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
