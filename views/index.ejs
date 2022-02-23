@@ -10,9 +10,7 @@
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" id="theme_link"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/materia/bootstrap.min.css" />
-  <link rel="stylesheet" href=".//Public/CSS/navbar-fixed-left.min.css">
-
-
+  <link rel="stylesheet" href="/navbar-fixed-left.min.css">
 </head>
 
 <body>
@@ -31,11 +29,11 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           <i class='bx bx-1 bxs-dashboard'></i>
-          <a class="nav-link">Dashboard</a>
+          <a class="nav-link" href="/admin/save">Dashboard</a>
         </li>
         <li class="nav-item">
           <i class='bx bx-1 bx-target-lock'></i>
-          <a class="nav-link">Predict</a>
+          <a class="nav-link" href="">predict</a>
         </li>
         <li class="nav-item">
           <i class='bx bx-1 bxs-cog'></i>
@@ -71,8 +69,10 @@
             <i class='bx bx-search bx-search-alt'></i>
           </a>
         </div>
+        <div class="avatar-container">
         <img class="avatar" src="https://img.icons8.com/fluency/48/000000/user-male-circle.png"/>
-
+        <a href="/admin/login">log-in</a>
+       </div>
       </div>
 
     </div>
@@ -108,35 +108,18 @@
         
         
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-          <article class="leaderboard__profile">
-            <span>01</span>
-            <span class="leaderboard__name">Shibam</span>
-            <span class="leaderboard__name id">75973598757</span>
-
-            <input type="checkbox" checked id="checkbox" />
-          </article>
-          <article class="leaderboard__profile">
-            <span>02</span>
-            <span class="leaderboard__name">Biju</span>
-            <span class="leaderboard__name id">756358598757</span>
-
-            <input type="checkbox" checked id="checkbox" />
-          </article>
-          <article class="leaderboard__profile">
-            <span>03</span>
-            <span class="leaderboard__name">Tanmay</span>
-            <span class="leaderboard__name id">637843598757</span>
-
-            <input type="checkbox" checked id="checkbox" />
-          </article>
-          <article class="leaderboard__profile">
-            <span>04</span>
-            <span class="leaderboard__name">Truptee</span>
-            <span class="leaderboard__name id">523523598757</span>
-
-            <input type="checkbox" checked id="checkbox" />
-          </article>
+         
           
+          <%  data.forEach(machine => {%>
+            <article class="leaderboard__profile">
+              <span><%= machine.id %></span>
+              <span class="leaderboard__name"><%= machine.name%></span>
+              <span class="leaderboard__name id"><%= machine.type%></span>
+
+              <input type="checkbox" checked id="checkbox" />
+            </article>
+  
+          <%}) %>
           
         </div>
 
@@ -146,14 +129,14 @@
         </div>
 
 
-
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
           <h1>3</h1>
         </div>
 
 
-
       </div>
+
+
     </div>
 
 

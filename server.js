@@ -1,18 +1,39 @@
-require('dotenv').config()
-const express = require('express')
+// require('dotenv').config();
+
+const express = require('express');
 const app = express()
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const path = require('path');
+const machine = require('./models/machine');
+const bodyparser = require('body-parser');
 
-mongoose.connect(process.env.DATABASE_URL)
-const db = mongoose.connection
+const connectionParams = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}
 
-db.on('error', (e) => console.error(e))
-db.on('open', () => console.log("Connected to db"))
+const DATABASE_URL ='mongodb+srv://truptee:truptee02@cluster0.jlsdc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
-app.use(express.json())
+mongoose.connect(DATABASE_URL, connectionParams).then(() => {
+    console.log('MongoDB Connected');
+}).catch(err => console.log(err));
+
+app.use(bodyparser.urlencoded({ extended: false }));
+app.use(bodyparser.json());
+
+app.set('view engine', 'ejs');
+
+app.use(express.json());
+
+app.get('/',(req,res)=>{
+    res.render('form');
+});
+
+const staticfiles = path.join(__dirname + '/public/CSS')
+app.use(express.static(staticfiles));
 
 const adminRouter = require('./routes/admin')
-app.use('/admin', adminRouter)
+app.use('/admin', adminRouter);
 
 app.listen(4000, () => {
     console.log("Server started at port 4000")

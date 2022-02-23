@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const machineSchema = new mongoose.Schema({
     id: {
@@ -13,6 +13,6 @@ const machineSchema = new mongoose.Schema({
         type: String,
         required: true
     }
-})
+});
 
-module.exports = mongoose.model('machine', machineSchema)
+module.exports = mongoose.model('machine', machineSchema);
